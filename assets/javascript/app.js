@@ -20,11 +20,6 @@ var frequency = 0;
 // Capture Button Click
 $("#add-train").on("click", function (event) {
     event.preventDefault();
-    // clearInterval(updateInterval);
-
-    // YOUR TASK!!!
-    // Code in the logic for storing and retrieving the most recent user.
-    // Don't forget to provide initial data to your Firebase database.
     name = $("#name-input").val().trim();
     destination = $("#destination-input").val().trim();
     firstTrain = $("#firstTrain-input").val().trim();
@@ -39,35 +34,15 @@ $("#add-train").on("click", function (event) {
         frequency: frequency,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
-    // updateInterval = setInterval(updateChart, 1000 * 30);
 });
 
 $(".del-train").on("click", function (event) {
     event.preventDefault();
 
-    // YOUR TASK!!!
-    // Code in the logic for storing and retrieving the most recent user.
-    // Don't forget to provide initial data to your Firebase database.
     console.log($("#button-id").val());
     console.log($(this).val());
 
-    // name = $("#name-input").val().trim();
-    // destination = $("#destination-input").val().trim();
-    // firstTrain = $("#firstTrain-input").val().trim();
-    // frequency = $("#frequency-input").val().trim();
-
-    // // Code for the push
-    // dataRef.ref("train").push({
-
-    //     name: name,
-    //     destination: destination,
-    //     firstTrain: firstTrain,
-    //     frequency: frequency,
-    //     dateAdded: firebase.database.ServerValue.TIMESTAMP
-    // });
 });
-
-
 
 // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
 dataRef.ref("train").on("child_added", function (childSnapshot) {
@@ -109,9 +84,6 @@ dataRef.ref("train").orderByChild("dateAdded").limitToLast(1).on("child_added", 
     $("#frequency-display").text(snapshot.val().frequency);
 });
 
-// Update table with new minutes left
-// var updateInterval = setInterval(updateChart, 1000 * 60);
-
 // Update clock
 setInterval(function () {
     var currentTime = moment().format("MMM Do, YYYY hh:mm:ss A")
@@ -127,21 +99,7 @@ function removeTrain() {
     console.log(this);
     console.log(dateAdded);
     console.log(dateAdded);
-
-
-    // Code for the push
-    // dataRef.ref("train").push({
-
-    //     name: name,
-    //     destination: destination,
-    //     firstTrain: firstTrain,
-    //     frequency: frequency,
-    //     dateAdded: firebase.database.ServerValue.TIMESTAMP
-    // });
-
 }
-
-// $(document).on("click", ".del-train", removeTrain);
 
 $(document).ready(function () {
     updateChart();
