@@ -1,0 +1,24 @@
+body {
+    background: transparent;
+}
+
+.jumbotron {
+    background-image: url("../images/Blue-Ridge-Scenic-Railway.jpg");
+    background-repeat: no-repeat;
+    background-size: 1200px 400px;
+}
+
+.container {
+    background-color: white;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.parallax-window {
+    min-height: 800px;
+    background: transparent;
+}
+
+table {
+    background-color: white;
+}
